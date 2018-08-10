@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Welcome to the great number game!</h1>
+
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess</p>
+
+    <div class="box">
+        <p>{{ session['gameStr'] }}</p>
+        {%  if session['gameStr'] == "You win!" %}
+            <form action='/reset' method='post'> <input type='submit'></form>
+        {% endif %}
+
+    </div>
+
+    <form action="/result" method="POST">
+        <input type="number" name="guess">
+        <input type="submit">
+    </form>
+
+
+</body>
+</html>
